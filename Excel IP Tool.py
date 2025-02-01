@@ -47,7 +47,7 @@ def main():
         if 'RESULT' not in df.columns:
             df['RESULT'] = ''
 
-        # Timer starts just before testing
+
         start_time = time.perf_counter()
         try:
             for index, row in df.iterrows():
@@ -75,10 +75,9 @@ def main():
 
                 df.at[index, 'RESULT'] = '\n'.join(output)
         finally:
-            # Timer stops immediately after testing
             elapsed_time = time.perf_counter() - start_time
             os.system('cls' if os.name == 'nt' else 'clear')
-            print(f"\n⏱️ Testing time: {elapsed_time:.2f} seconds")
+            print(f"\n⏱️ Testing time: {elapsed_time:.2f} seconds ⏱️")
 
         if save_data(df, excel_file):
             print(f"\n✅ Saved results to: {excel_file} ✅")
